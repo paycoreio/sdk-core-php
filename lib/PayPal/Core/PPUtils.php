@@ -185,7 +185,7 @@ class PPUtils
     }
 
     /**
-     * @var array|ReflectionProperty[]
+     * @var array|\ReflectionProperty[]
      */
     private static $propertiesRefl = array();
 
@@ -200,13 +200,13 @@ class PPUtils
      * @param string $class
      * @param string $propertyName
      *
-     * @throws RuntimeException
+     * @throws \RuntimeException
      * @return string
      */
     public static function propertyAnnotations($class, $propertyName)
     {
         $class = is_object($class) ? get_class($class) : $class;
-        if (!class_exists('ReflectionProperty')) {
+        if (!class_exists(\ReflectionProperty::class)) {
             throw new \RuntimeException("Property type of " . $class . "::{$propertyName} cannot be resolved");
         }
 

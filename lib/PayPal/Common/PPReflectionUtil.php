@@ -47,7 +47,7 @@ class PPReflectionUtil
     public static function propertyAnnotations($class, $propertyName)
     {
         $class = is_object($class) ? get_class($class) : $class;
-        if (!class_exists('ReflectionProperty')) {
+        if (!class_exists(\ReflectionProperty::class)) {
             throw new \RuntimeException("Property type of " . $class . "::{$propertyName} cannot be resolved");
         }
 

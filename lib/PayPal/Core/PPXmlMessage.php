@@ -120,11 +120,6 @@ abstract class PPXmlMessage
             return;
         }
 
-        if (($first = reset($map)) && !is_array($first) && !is_numeric(key($map))) {
-            parent::init($map, false);
-            return;
-        }
-
         $propertiesMap = PPUtils::objectProperties($this);
         $arrayCtr      = array();
         foreach ($map as $element) {

@@ -48,7 +48,7 @@ class PPHttpConfig
     {
         $this->url         = $url;
         $this->method      = $method;
-        $this->curlOptions = $this->getHttpConstantsFromConfigs($configs, 'http.') + self::$DEFAULT_CURL_OPTS;
+        $this->curlOptions = $this->getHttpConstantsFromConfigs('http.', $configs) + self::$DEFAULT_CURL_OPTS;
         // Update the Cipher List based on OpenSSL or NSS settings
         $curl       = curl_version();
         $sslVersion = isset($curl['ssl_version']) ? $curl['ssl_version'] : '';
@@ -217,7 +217,7 @@ class PPHttpConfig
      *
      * @return array
      */
-    public function getHttpConstantsFromConfigs($configs = array(), $prefix)
+    public function getHttpConstantsFromConfigs($prefix, $configs = array())
     {
         $arr = array();
         if ($prefix != null && is_array($configs)) {
